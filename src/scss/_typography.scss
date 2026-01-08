@@ -1,0 +1,55 @@
+@use 'breakpoints';
+
+:root {
+  --font-h1: normal 400 var(--font-size-xxxl-desktop)/var(--font-line-height-xxxl-desktop) var(--font-family-heading-desktop);
+  --font-h2: normal 400 var(--font-size-xxl-desktop)/var(--font-line-height-xxl-desktop) var(--font-family-heading-desktop);
+  --font-h3: normal 400 var(--font-size-xl-desktop)/var(--font-line-height-xl-desktop) var(--font-family-heading-desktop);
+  --font-h4: normal 500 var(--font-size-lg-desktop)/var(--font-line-height-lg-desktop) var(--font-family-heading-desktop);
+  --font-h5: normal 500 var(--font-size-md-desktop)/var(--font-line-height-md-desktop) var(--font-family-heading-desktop);
+  --font-body-large: normal 300 var(--font-size-sm-desktop)/var(--font-line-height-sm-desktop) var(--font-family-heading-desktop);
+  --font-body-base: normal 300 var(--font-size-xs-desktop)/var(--font-line-height-xs-desktop) var(--font-family-heading-desktop);
+  --font-body-accent: normal 400 var(--font-size-xs-desktop)/var(--font-line-height-xs-desktop) var(--font-family-heading-desktop);
+  --font-body-subhead: normal 700 var(--font-size-xs-desktop)/var(--font-line-height-xs-desktop) var(--font-family-heading-desktop);
+  --font-body-tiny: normal 400 var(--font-size-xxs-desktop)/var(--font-line-height-xxs-desktop) var(--font-family-heading-desktop);
+}
+
+
+
+@include breakpoints.respond-to-max('xs') {
+  :root {
+    --font-h1: normal 400 var(--font-size-xxxl-mobile)/var(--font-line-height-xxxl-mobile) var(--font-family-heading-mobile);
+    --font-h2: normal 400 var(--font-size-xxl-mobile)/var(--font-line-height-xxl-mobile) var(--font-family-heading-mobile);
+    --font-h3: normal 400 var(--font-size-xl-mobile)/var(--font-line-height-xl-mobile) var(--font-family-heading-mobile);
+    --font-h4: normal 500 var(--font-size-lg-mobile)/var(--font-line-height-lg-mobile) var(--font-family-heading-mobile);
+    --font-h5: normal 500 var(--font-size-md-mobile)/var(--font-line-height-md-mobile) var(--font-family-heading-mobile);
+    --font-body-large: normal 300 var(--font-size-sm-mobile)/var(--font-line-height-sm-mobile) var(--font-family-heading-mobile);
+    --font-body-base: normal 300 var(--font-size-xs-mobile)/var(--font-line-height-xs-mobile) var(--font-family-heading-mobile);
+    --font-body-accent: normal 400 var(--font-size-xs-mobile)/var(--font-line-height-xs-mobile) var(--font-family-heading-mobile);
+    --font-body-subhead: normal 700 var(--font-size-xs-mobile)/var(--font-line-height-xs-mobile) var(--font-family-heading-mobile);
+    --font-body-tiny: normal 400 var(--font-size-xxs-mobile)/var(--font-line-height-xxs-mobile) var(--font-family-heading-mobile);
+  }
+}
+
+h1 {
+  font: var(--font-h1);
+}
+
+h2 {
+  font: var(--font-h2);
+}
+
+h3 {
+  font: var(--font-h3);
+}
+
+h4 {
+  font: var(--font-h4);
+}
+
+h5 {
+  font: var(--font-h5);
+}
+
+p {
+  font: var(--font-body-large);
+}

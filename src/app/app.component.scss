@@ -1,0 +1,13 @@
+@use 'breakpoints';
+
+h1{
+    color: gray;
+
+}
+
+  @include breakpoints.respond-to-max(xs) {
+    h1{
+    color: green;
+    
+}
+}
