@@ -1,0 +1,20 @@
+
+<div>
+    <div>
+    <h1><i18n-text label="pages.log-in-out.auth.title"></i18n-text></h1>
+    <span><i18n-text label="pages.log-in-out.auth.subtitle"></i18n-text></span>
+    </div>
+
+    <form [formGroup]="authForm" (ngSubmit)="authBtn(authForm)">
+        <div>
+            <app-input type="text" label="pages.common.email" formControlName="userEmail"
+                placeholder="Введите адрес электронной почты"
+></app-input>
+        </div>
+        <div>
+            <app-input type="text" label="pages.common.password" formControlName="userPassword" ></app-input>
+        </div>
+
+        <button type="submit">Send</button>
+    </form>
+</div>

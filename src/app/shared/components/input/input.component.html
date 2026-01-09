@@ -1,0 +1,15 @@
+<div class="input-container">
+  <label [attr.for]="id()"><i18n-text [label]="label()"> </i18n-text>
+  </label>
+  <input
+    #inputEl
+    [id]="id()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    (input)="onInput($event)"
+    (blur)="onTouched()"
+    [value]="value()"
+    [attr.aria-invalid]="ngControl?.invalid && ngControl?.touched"
+  />
+</div>

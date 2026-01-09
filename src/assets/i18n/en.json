@@ -1,6 +1,24 @@
 {
-    "general":{
-        "title": "Hello",
-        "parag":"Can show text"
+    "pages":{
+        "common":{
+            "email": "Email",
+            "password": "Password"
+        },
+        "log-in-out":{
+            "registretion":{
+  "title": "Create an account 👤",
+  "subtitle": "Join Focusify and start being productive",
+  "name": "Full name",
+  "confirm-password": "Confirm password",
+  "terms": "I agree to the Terms and Privacy Policy",
+  "submit": "Sign up"
+            },
+            "auth":{
+  "title": "Welcome back 👤",
+  "subtitle": "Log in to your account",
+  "forgot-password": "Forgot password?",
+  "submit": "Log in"
+            }
+        }
     }
 }

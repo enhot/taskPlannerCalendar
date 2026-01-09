@@ -1,6 +1,15 @@
 
-
 export type TLabels = 
 | never
-| 'general.title'
-| 'general.parag'
+| 'pages.common.email'
+| 'pages.common.password'
+| 'pages.log-in-out.registretion.title'
+| 'pages.log-in-out.registretion.subtitle'
+| 'pages.log-in-out.registretion.name'
+| 'pages.log-in-out.registretion.confirm-password'
+| 'pages.log-in-out.registretion.terms'
+| 'pages.log-in-out.registretion.submit'
+| 'pages.log-in-out.auth.title'
+| 'pages.log-in-out.auth.subtitle'
+| 'pages.log-in-out.auth.forgot-password'
+| 'pages.log-in-out.auth.submit';

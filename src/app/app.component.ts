@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { AppI18nTextComponent } from './shared/components/app-i18n-text/app-i18n-text.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ AppI18nTextComponent ],
+  imports: [ RouterOutlet ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
 }
