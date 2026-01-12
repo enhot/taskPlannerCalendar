@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ui-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 8px;
+}
+
+
+.ui-input__field {
+  width: 100%;
+  padding: 20px 18px;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  border: none;
+  background-color: #fafafa;
+
+  outline: none;
+
+  &[aria-invalid='true'] {
+    outline: 2px solid #d32f2f;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

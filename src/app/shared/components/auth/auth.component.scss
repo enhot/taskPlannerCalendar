@@ -1,0 +1,62 @@
+:host {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  box-sizing: border-box;
+
+  .auth {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .auth__nav {
+    min-height: 72px;
+    padding: var(--space-sm) var(--space-xl);
+    display: flex;
+    align-items: center;
+  }
+
+  .auth__back-btn {
+    all: unset;
+    cursor: pointer;
+  }
+
+  .auth__back-icon {
+    width: var(--icon-width);
+    height: var(--icon-width);
+  }
+
+  .auth__content {
+    flex-grow: 1;
+    padding: var(--space-xs) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space-xxl);
+  }
+
+  .auth__title {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space-xs);
+  }
+
+  .auth__subtitle {
+    color: #616161;
+    letter-spacing: 0.2px;
+  }
+
+  .auth__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space-md);
+    height: 100%;
+
+    .auth__submit {
+      margin-top: auto;
+    }
+  }
+}
+
+
+

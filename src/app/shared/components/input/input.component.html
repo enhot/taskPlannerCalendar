@@ -1,7 +1,10 @@
-<div class="input-container">
-  <label [attr.for]="id()"><i18n-text [label]="label()"> </i18n-text>
+<div class="ui-input">
+  <label class="ui-input__label" [attr.for]="id()">
+    <i18n-text [label]="label()"></i18n-text>
   </label>
+
   <input
+    class="ui-input__field"
     #inputEl
     [id]="id()"
     [type]="type()"

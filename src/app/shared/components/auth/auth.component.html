@@ -1,20 +1,43 @@
+<div class="auth">
+  <div class="auth__nav">
+    <button type="button" class="auth__back-btn">
+      <img
+        class="auth__back-icon"
+        src="assets/icons/arrow-back.svg"
+        alt="arrow back"
+      />
+    </button>
+  </div>
 
-<div>
-    <div>
-    <h1><i18n-text label="pages.log-in-out.auth.title"></i18n-text></h1>
-    <span><i18n-text label="pages.log-in-out.auth.subtitle"></i18n-text></span>
+  <div class="auth__content">
+    <div class="auth__title">
+      <h1>
+        <i18n-text label="pages.log-in-out.auth.title"></i18n-text>
+      </h1>
+      <span class="auth__subtitle">
+        <i18n-text label="pages.log-in-out.auth.subtitle"></i18n-text>
+      </span>
     </div>
 
-    <form [formGroup]="authForm" (ngSubmit)="authBtn(authForm)">
-        <div>
-            <app-input type="text" label="pages.common.email" formControlName="userEmail"
-                placeholder="Введите адрес электронной почты"
-></app-input>
-        </div>
-        <div>
-            <app-input type="text" label="pages.common.password" formControlName="userPassword" ></app-input>
-        </div>
+    <form
+      class="auth__form"
+      [formGroup]="authForm"
+      (ngSubmit)="authBtn(authForm)"
+    >
+      <app-input
+        type="text"
+        label="pages.common.email"
+        formControlName="userEmail"
+        placeholder="Введите адрес электронной почты"
+      ></app-input>
 
-        <button type="submit">Send</button>
+      <app-input
+        type="text"
+        label="pages.common.password"
+        formControlName="userPassword"
+      ></app-input>
+
+      <button class="auth__submit" type="submit">Send</button>
     </form>
+  </div>
 </div>

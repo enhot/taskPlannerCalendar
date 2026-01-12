@@ -12,7 +12,7 @@
     --font-size-xl-desktop: 28px;
     --font-size-md-desktop: 20px;
     --font-size-sm-desktop: 18px;
-    --font-size-xs-desktop: 13px;
+    --font-size-xs-desktop: 16px;
     --font-size-xxs-desktop: 12px;
 
 
@@ -22,8 +22,8 @@
     --font-size-xxl-mobile: 20px;
     --font-size-xl-mobile: 18px;
     --font-size-sm-mobile: 16px;
-    --font-size-lg-mobile: 16px;
-    --font-size-md-mobile: 14px;
+    --font-size-xs-mobile: 14px;
+    --font-size-xxs-mobile: 12px;
 
     //Font line-height
         //For desktop
@@ -44,4 +44,22 @@
     --font-line-height-sm-mobile: 20px;
     --font-line-height-xs-mobile: 18px;
     --font-line-height-xxs-mobile: 14px;
+
+    //Gap,padding,margin and etc
+
+  --radius-sm: 6px;
+--radius-md: 10px;
+--radius-lg: 16px;
+
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+
+  --icon-width: 28px;
+
+
 }
