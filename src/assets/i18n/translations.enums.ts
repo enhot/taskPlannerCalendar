@@ -3,6 +3,8 @@ export type TLabels =
 | never
 | 'pages.common.email'
 | 'pages.common.password'
+| 'pages.common.sign-in'
+| 'pages.common.log-in'
 | 'pages.log-in-out.registretion.title'
 | 'pages.log-in-out.registretion.subtitle'
 | 'pages.log-in-out.registretion.name'

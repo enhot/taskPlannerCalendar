@@ -2,7 +2,9 @@
     "pages":{
         "common":{
             "email": "Email",
-            "password": "Password"
+            "password": "Password",
+            "sign-in":"Sign-in",
+            "log-in": "Log-in"
         },
         "log-in-out":{
             "registretion":{

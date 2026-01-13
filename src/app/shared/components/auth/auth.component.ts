@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AppI18nTextComponent } from '../app-i18n-text/app-i18n-text.component';
 import { InputComponent } from '../input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [AppI18nTextComponent,InputComponent,ReactiveFormsModule],
+  imports: [AppI18nTextComponent,InputComponent,ReactiveFormsModule,ButtonComponent],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush

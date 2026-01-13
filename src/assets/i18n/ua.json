@@ -2,7 +2,9 @@
   "pages": {
     "common": {
       "email": "Електронна пошта",
-      "password": "Пароль"
+      "password": "Пароль",
+                  "sign-in":"Вхід",
+            "log-in": "Увійти" 
     },
     "log-in-out": {
       "registretion": {

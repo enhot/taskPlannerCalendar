@@ -299,6 +299,15 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  background: transparent;
+}
+
 //
 // Change the border, margin, and padding in all browsers (opinionated).
 //
@@ -440,3 +449,6 @@ template {
 [hidden] {
   display: none;
 }
+
+
+

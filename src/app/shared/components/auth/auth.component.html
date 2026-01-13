@@ -36,8 +36,10 @@
         label="pages.common.password"
         formControlName="userPassword"
       ></app-input>
+    <div class="auth__btn-block">
+      <app-button class="auth__submit" type="submit" [disabled]="false" label="pages.common.log-in"></app-button>
 
-      <button class="auth__submit" type="submit">Send</button>
+    </div>
     </form>
   </div>
 </div>
