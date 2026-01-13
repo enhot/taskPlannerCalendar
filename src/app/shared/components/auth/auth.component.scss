@@ -11,7 +11,7 @@
   }
 
   .auth__nav {
-    min-height: 72px;
+    min-height: var(--height-l);
     padding: var(--space-sm) var(--space-xl);
     display: flex;
     align-items: center;
