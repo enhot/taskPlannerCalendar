@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDcqTy6Yz1IWOrn3mR1XCikJX3MCfSPfUo",
   authDomain: "task-planer-calendar.firebaseapp.com",
   projectId: "task-planer-calendar",
@@ -14,4 +14,3 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);

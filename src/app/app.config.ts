@@ -7,6 +7,14 @@ import {provideHttpClient} from "@angular/common/http";
 
 import { i18nConfig } from '../assets/i18n/i18n.config';
 
+import { provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore } from '@angular/fire/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import {   firebaseConfig } from './shared/environment/firebase-config';
+
+
+
 export const appConfig: ApplicationConfig = {
 
   providers: [
@@ -14,6 +22,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     ...i18nConfig,
+		provideFirebaseApp(() => initializeApp(firebaseConfig)),
+		provideFirestore(() => getFirestore()),
 
   
   ]

@@ -1,4 +1,9 @@
 <div class="auth">
+@for (item of logIn$ ; track $index) {
+  <p>{{item.email}}</p>
+
+
+}
   <div class="auth__nav">
     <button type="button" class="auth__back-btn">
       <img
