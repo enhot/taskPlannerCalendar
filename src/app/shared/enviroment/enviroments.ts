@@ -5,12 +5,16 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
  export const firebaseConfig = {
+      production: false,
+  firebase :{
   apiKey: "AIzaSyDcqTy6Yz1IWOrn3mR1XCikJX3MCfSPfUo",
   authDomain: "task-planer-calendar.firebaseapp.com",
   projectId: "task-planer-calendar",
   storageBucket: "task-planer-calendar.firebasestorage.app",
   messagingSenderId: "910123272982",
   appId: "1:910123272982:web:6299c5e346fc2f6bc8de37"
+  }
+
 };
 
 

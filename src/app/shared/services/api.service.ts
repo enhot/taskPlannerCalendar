@@ -1,26 +1,22 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, docData, Firestore } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
-import { IUsersApi } from '../interfaces/IUsersApi';
+import { IUserLogin, IUserRegistr } from '../interfaces/IUsersApi';
+import { AuthService } from './auth.service';
+import { signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
+import { doc } from '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  private fireStore = inject(Firestore);
+    private fireStore = inject(Firestore);
   public userColletcion = collection(this.fireStore,'usersInfo');
 
-  public getUserInfo():Observable<IUsersApi[]>{
-    return collectionData(this.userColletcion, {
-      idField:'id'
-    }) as Observable<IUsersApi[]>
+  public getCurrentUserProfile(uid: string):Observable<IUserRegistr>{
+const userDocRef = doc(this.fireStore, `usersInfo/${uid}`);
+    
+    return  docData(userDocRef) as Observable<IUserRegistr>;
   }
 
-  public setNewUser(user:IUsersApi):Observable<any>{
-    const addNewUser = {user, isCompleted:false};
-    const promise = addDoc(this.userColletcion,addNewUser).then(
-      (response) => response.id
-    )
-    return from(promise)
-  }
 }

@@ -4,6 +4,7 @@ import { InputComponent } from '../input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
 import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +15,7 @@ import { ApiService } from '../../services/api.service';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent implements OnInit{
-  private apiService = inject(ApiService);
+  private authService = inject(AuthService);
 
 
   public authForm: FormGroup = new FormGroup({
@@ -24,13 +25,17 @@ export class AuthComponent implements OnInit{
   });
 
   public ngOnInit(): void {
-    this.apiService.getUserInfo().subscribe((e) => console.log(e,'data')
-    )
+
   }
 
   public authBtn(form:FormGroup){
-    this.apiService.setNewUser(form.value).subscribe(
-      (e) => console.log('addd',e)
-    )
+if (form.valid) {
+    this.authService.signUp(form.value).subscribe({
+      next: () => {
+        console.log('Пользователь успешно создан в Auth и Firestore!');
+      },
+      error: (err) => console.error('Ошибка регистрации:', err)
+    });
+  }
   }
 }

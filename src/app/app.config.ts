@@ -10,6 +10,7 @@ import { i18nConfig } from '../assets/i18n/i18n.config';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { firebaseConfig } from './shared/enviroment/enviroments';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 
 export const appConfig: ApplicationConfig = {
@@ -20,10 +21,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     ...i18nConfig,
 
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(firebaseConfig.firebase)),
     provideFirestore(() => getFirestore()),
-
-
+    provideAuth(() => getAuth()),
   
   ]
 
