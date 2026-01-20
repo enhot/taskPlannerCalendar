@@ -4,11 +4,12 @@
             "email": "Email",
             "password": "Password",
             "sign-in":"Sign-in",
-            "log-in": "Log-in"
+            "to-log-in": "To sign-in",
+            "to-auth":"To log in"
         },
         "log-in-out":{
             "registretion":{
-  "title": "Create an account 👤",
+  "title": "Create an account 🔒",
   "subtitle": "Join Focusify and start being productive",
   "name": "Full name",
   "confirm-password": "Confirm password",

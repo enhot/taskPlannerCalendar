@@ -55,19 +55,23 @@
     height: 100%;
 
     .auth__btn-block{
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--space-md);
       position: relative;
       margin-top: auto;
-      padding: 24px;
-
+      padding: var(--space-xl);
       &::before{
       content: '';
     position: absolute;
         @include mixins.full-width-line;
-
     top: 0;
     border-top: 1px solid black;
       }
+      .change-loginMode{
+        text-align: center;
     }
+  }
   }
 }
 
