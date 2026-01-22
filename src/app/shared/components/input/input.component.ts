@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, Injector, input, OnInit, signal } from '@angular/core';
-import { NG_VALUE_ACCESSOR, FormsModule, NgControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, FormsModule, NgControl, FormControl } from '@angular/forms';
 import { AppI18nTextComponent } from '../app-i18n-text/app-i18n-text.component';
 import { TLabels } from '../../../../assets/i18n/translations.enums';
 
@@ -31,6 +31,8 @@ export class InputComponent implements ControlValueAccessor, OnInit{
   public placeholder = input<string>('');
   public value = signal<string>('');
   public disabled = signal<boolean>(false);
+  //public control = input.required<FormControl>();
+
 
   public onChange: (value: string) => void = () => {};
   public onTouched: () => void = () => {};
@@ -42,6 +44,7 @@ export class InputComponent implements ControlValueAccessor, OnInit{
   constructor() { 
 
   } 
+  
 
   public ngOnInit(): void {
     this.ngControl = this.injector.get(NgControl, null, { self: true });

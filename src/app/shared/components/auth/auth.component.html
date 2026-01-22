@@ -46,7 +46,7 @@
         formControlName="userPassword"
       ></app-input>
     <div class="auth__btn-block">
-      <app-button class="auth__submit" [type]="'submit'" [disabled]="false" [variant]="'common'" [label]="!isLoginMode ? 'pages.log-in-out.registretion.submit' : 'pages.common.to-log-in'"></app-button>
+      <app-button class="auth__submit" [type]="'submit'" [disabled]="authForm.invalid" [variant]="'common'" [label]="!isLoginMode ? 'pages.log-in-out.registretion.submit' : 'pages.common.to-log-in'"></app-button>
       <app-button class="change-loginMode" (click)="isLoginMode = !isLoginMode" [type]="'button'"  [variant]="'link'" [label]="!isLoginMode ? 'pages.common.to-auth' : 'pages.common.to-log-in'"></app-button>
     </div>
     </form>

@@ -4,7 +4,7 @@
   width: 100%;
     button{
       &.comon-btn{
-   width: 100%;
+    width: 100%;
     max-height: var(--height-md);
     height: 100%;
     background: #FF6347;
@@ -38,11 +38,15 @@ transition: transform 0.3s ease-in-out;
     text-decoration: underline 1px solid black;
   }
       }
-
-
-
-
 }
+
+button:disabled{
+  background: #5a5a5a;
+  &:active{
+    opacity: 1;
+  }
+}
+
 }
 
 

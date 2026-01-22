@@ -31,6 +31,7 @@ export class AuthComponent implements OnInit{
   }
 
   public authBtn(form:FormGroup){
+    console.log('sdas')
 if (form.valid) {
     this.authService.signUp(form.value).subscribe({
       next: () => {

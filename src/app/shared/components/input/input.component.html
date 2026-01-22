@@ -14,5 +14,19 @@
     (blur)="onTouched()"
     [value]="value()"
     [attr.aria-invalid]="ngControl?.invalid && ngControl?.touched"
-  />
+    [attr.aria-describedby]="id() + '-error'"  />
 </div>
+
+@if ( (ngControl?.touched || ngControl?.dirty) && ngControl?.invalid  ) {
+  <div class="error-message">
+    @if(ngControl?.errors?.['required']){
+      <p [id]="id() + '-error'">Поле обязательно для заполнения</p>
+    }
+    @if(ngControl?.errors?.['email']){
+      <p>Please enter email </p>
+    }
+    @if (ngControl?.errors?.['minlength']) {
+      <p>Минимум {{ ngControl?.errors?.['minlength'].requiredLength }} символов</p>
+    }
+  </div>
+}
