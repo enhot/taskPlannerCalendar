@@ -6,6 +6,7 @@ export type TLabels =
 | 'pages.common.sign-in'
 | 'pages.common.to-log-in'
 | 'pages.common.to-auth'
+| 'pages.common.add-photo'
 | 'pages.log-in-out.registretion.title'
 | 'pages.log-in-out.registretion.subtitle'
 | 'pages.log-in-out.registretion.name'

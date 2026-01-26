@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, Injector, input, OnInit, signal } from '@angular/core';
-import { NG_VALUE_ACCESSOR, FormsModule, NgControl, FormControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, FormsModule, NgControl } from '@angular/forms';
 import { AppI18nTextComponent } from '../app-i18n-text/app-i18n-text.component';
 import { TLabels } from '../../../../assets/i18n/translations.enums';
 

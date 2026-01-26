@@ -3,6 +3,7 @@
     <i18n-text [label]="label()"></i18n-text>
   </label>
 
+  <div class="ui-input__block">
   <input
     class="ui-input__field"
     #inputEl
@@ -15,9 +16,8 @@
     [value]="value()"
     [attr.aria-invalid]="ngControl?.invalid && ngControl?.touched"
     [attr.aria-describedby]="id() + '-error'"  />
-</div>
 
-@if ( (ngControl?.touched || ngControl?.dirty) && ngControl?.invalid  ) {
+    @if ( (ngControl?.touched || ngControl?.dirty) && ngControl?.invalid  ) {
   <div class="error-message">
     @if(ngControl?.errors?.['required']){
       <p [id]="id() + '-error'">Поле обязательно для заполнения</p>
@@ -30,3 +30,8 @@
     }
   </div>
 }
+  </div>
+
+
+</div>
+

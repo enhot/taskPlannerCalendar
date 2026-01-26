@@ -5,7 +5,8 @@
       "password": "Пароль",
       "sign-in":"Войти",
       "to-log-in": "К регестрации",
-      "to-auth":"К авторизации"
+      "to-auth":"К авторизации",
+      "add-photo": "Добавить своё фото"
     },
     "log-in-out": {
       "registretion": {
