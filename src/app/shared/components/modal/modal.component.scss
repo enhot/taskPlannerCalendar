@@ -1,0 +1,35 @@
+:host{
+display: flex;
+  flex-direction: column;
+  height: 100%; 
+  width: 100%;
+
+.mat-content {
+    border: 1px dashed black;
+    display: flex;
+            margin: var(--space-lg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+      @media (hover: hover) {
+&:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.02);
+}
+}
+}
+
+mat-dialog-actions{
+    display: flex;
+    justify-content: space-between;
+    column-gap: var(--space-xs);
+app-button{
+    flex: 1;
+    &:hover {
+        opacity: 0.7;
+}
+}
+}
+
+}

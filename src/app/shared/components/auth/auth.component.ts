@@ -4,17 +4,21 @@ import { InputComponent } from '../input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
 import { AuthService } from '../../services/auth.service';
+import {MatButtonModule} from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [AppI18nTextComponent,InputComponent,ReactiveFormsModule,ButtonComponent],
+  imports: [AppI18nTextComponent,InputComponent,ReactiveFormsModule,ButtonComponent,MatButtonModule],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent implements OnInit{
   private authService = inject(AuthService);
+  readonly dialog = inject(MatDialog);
 
   public isLoginMode: boolean = false;
 
@@ -40,6 +44,15 @@ if (form.valid) {
       error: (err) => console.error('Ошибка регистрации:', err)
     });
   }
+  }
+
+    openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
+    this.dialog.open(ModalComponent,{
+       height: '400px',
+  width: '600px',
+     enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
   

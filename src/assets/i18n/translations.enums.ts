@@ -16,4 +16,8 @@ export type TLabels =
 | 'pages.log-in-out.auth.title'
 | 'pages.log-in-out.auth.subtitle'
 | 'pages.log-in-out.auth.forgot-password'
-| 'pages.log-in-out.auth.submit';
+| 'pages.log-in-out.auth.submit'
+| 'pages.modal.leading'
+| 'pages.modal.close'
+| 'pages.modal.upload'
+;

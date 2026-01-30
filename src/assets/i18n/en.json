@@ -23,6 +23,12 @@
   "forgot-password": "Forgot password?",
   "submit": "Log in"
             }
+        },
+        "modal":{
+            "leading":"Click or drag file to this area to upload",
+            "close":"Close",
+            "upload":"Upload"
         }
+        
     }
 }

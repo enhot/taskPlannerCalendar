@@ -49,7 +49,7 @@
 
       @if (!isLoginMode) {
       <div class="modal-btn">
-        <app-button type="button" variant="modal" label="pages.common.add-photo"></app-button>
+        <app-button (click)="openDialog('300ms', '100ms')" type="button" variant="modal" label="pages.common.add-photo"></app-button>
       </div>
       }
 
