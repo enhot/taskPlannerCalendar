@@ -3,7 +3,6 @@ import { AppI18nTextComponent } from '../app-i18n-text/app-i18n-text.component';
 import { InputComponent } from '../input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
-import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -17,10 +16,13 @@ import { AuthService } from '../../services/auth.service';
 export class AuthComponent implements OnInit{
   private authService = inject(AuthService);
 
+  public isLoginMode: boolean = false;
+
 
   public authForm: FormGroup = new FormGroup({
-      userEmail: new FormControl('',Validators.required),
-      userPassword: new FormControl(''),
+      userEmail: new FormControl('',[Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
+      userName: new FormControl('',[Validators.required, Validators.minLength(3)]),
+      userPassword: new FormControl('',[Validators.required,Validators.minLength(4)]),
 
   });
 
@@ -29,6 +31,7 @@ export class AuthComponent implements OnInit{
   }
 
   public authBtn(form:FormGroup){
+    console.log('sdas')
 if (form.valid) {
     this.authService.signUp(form.value).subscribe({
       next: () => {
@@ -38,4 +41,6 @@ if (form.valid) {
     });
   }
   }
+
+  
 }

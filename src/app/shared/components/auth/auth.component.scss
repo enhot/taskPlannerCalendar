@@ -13,7 +13,7 @@
   }
 
   .auth__nav {
-    min-height: var(--height-l);
+    min-height: var(--height-md);
     padding: var(--space-sm) var(--space-xl);
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
     padding: var(--space-xs) var(--space-xl);
     display: flex;
     flex-direction: column;
-    row-gap: var(--space-xxl);
+    row-gap: var(--space-s);
   }
 
   .auth__title {
@@ -51,24 +51,28 @@
   .auth__form {
     display: flex;
     flex-direction: column;
-    row-gap: var(--space-md);
     height: 100%;
-
     .auth__btn-block{
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--space-md);
       position: relative;
       margin-top: auto;
-      padding: 24px;
-
+      padding: var(--space-lg) var(--space-lg) var(--space-l);
       &::before{
       content: '';
     position: absolute;
-        @include mixins.full-width-line;
-
+    @include mixins.full-width-line;
     top: 0;
     border-top: 1px solid black;
       }
+      .change-loginMode{
+        text-align: center;
     }
   }
+  }
+
+
 }
 
 

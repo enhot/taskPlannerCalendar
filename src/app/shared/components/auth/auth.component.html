@@ -12,10 +12,10 @@
   <div class="auth__content">
     <div class="auth__title">
       <h1>
-        <i18n-text label="pages.log-in-out.auth.title"></i18n-text>
+        <i18n-text [label]='isLoginMode ? "pages.log-in-out.auth.title" : "pages.log-in-out.registretion.title"'></i18n-text>
       </h1>
       <span class="auth__subtitle">
-        <i18n-text label="pages.log-in-out.auth.subtitle"></i18n-text>
+        <i18n-text [label]='isLoginMode ? "pages.log-in-out.auth.subtitle" : "pages.log-in-out.registretion.subtitle"'></i18n-text>
       </span>
     </div>
 
@@ -31,14 +31,31 @@
         placeholder="Введите адрес электронной почты"
       ></app-input>
 
+      @if (!isLoginMode) {
+            <app-input
+        type="text"
+        label="pages.log-in-out.registretion.name"
+        formControlName="userName"
+        placeholder="Придумайте имя"
+      ></app-input>
+      }
+
       <app-input
         type="text"
         label="pages.common.password"
         formControlName="userPassword"
       ></app-input>
-    <div class="auth__btn-block">
-      <app-button class="auth__submit" type="submit" [disabled]="false" label="pages.common.log-in"></app-button>
 
+
+      @if (!isLoginMode) {
+      <div class="modal-btn">
+        <app-button type="button" variant="modal" label="pages.common.add-photo"></app-button>
+      </div>
+      }
+
+    <div class="auth__btn-block">
+      <app-button class="auth__submit" type="submit" [disabled]="authForm.invalid" variant="common" [label]="!isLoginMode ? 'pages.log-in-out.registretion.submit' : 'pages.log-in-out.auth.submit'"></app-button>
+      <app-button class="change-loginMode" (click)="isLoginMode = !isLoginMode" type="button"  variant="link" [label]="!isLoginMode ? 'pages.common.to-auth' : 'pages.common.to-log-in'"></app-button>
     </div>
     </form>
   </div>

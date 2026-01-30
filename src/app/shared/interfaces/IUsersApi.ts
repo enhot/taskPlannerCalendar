@@ -6,6 +6,6 @@ export interface IUserLogin {
 export interface IUserRegistr extends IUserLogin{
     id?: string;        
     name: string;      
-    photoURL: string;
+    photoURL?: string;
     createdAt: number;
 }

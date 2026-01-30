@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, doc, DocumentData, setDoc } from '@firebase/firestore';
+import { collection, doc, setDoc } from '@firebase/firestore';
 
 import { from, Observable } from 'rxjs';
 import { IUserLogin, IUserRegistr } from '../interfaces/IUsersApi';

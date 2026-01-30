@@ -3,6 +3,7 @@
   display: inline-block;
   width: 100%;
     button{
+      &.comon-btn{
     width: 100%;
     max-height: var(--height-md);
     height: 100%;
@@ -10,8 +11,7 @@
     color: #fff;
     padding: var(--space-md);
     border-radius: var(--radius-xl) ;
-
-      @media (hover: hover) {
+          @media (hover: hover) {
     &:hover {
       cursor: pointer;
     }
@@ -20,8 +20,63 @@
   &:active {
     opacity: 0.7;
   }
+      }
+      &.link-btn{
+        font-size: var(--font-size-xs-mobile);
+        text-align: center;
+        transform-origin: center;
+transition: transform 0.3s ease-in-out;
+              @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+          text-decoration: underline 1px solid black;
+          transform: scale(1.1);
+    }
+  }
+  &:active {
+    text-decoration: underline 1px solid black;
+  }
+      }
+
+      &.modal-btn{
+  background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,0.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  height: 29px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 var(--space-sm);
+  text-align: center;
+
+&:active {
+  border-bottom-color: #3b3c3d;
+}
+  @media (hover: hover) {
+&:hover {
+  border-color: #3a414a;
+        cursor: pointer;
 
 }
+
+  }
+      }
+}
+
+button:disabled{
+  background: #5a5a5a;
+  &:active{
+    opacity: 1;
+  }
+}
+
 }
 
 

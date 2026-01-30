@@ -31,6 +31,8 @@ export class InputComponent implements ControlValueAccessor, OnInit{
   public placeholder = input<string>('');
   public value = signal<string>('');
   public disabled = signal<boolean>(false);
+  //public control = input.required<FormControl>();
+
 
   public onChange: (value: string) => void = () => {};
   public onTouched: () => void = () => {};
@@ -42,6 +44,7 @@ export class InputComponent implements ControlValueAccessor, OnInit{
   constructor() { 
 
   } 
+  
 
   public ngOnInit(): void {
     this.ngControl = this.injector.get(NgControl, null, { self: true });
