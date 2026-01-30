@@ -23,7 +23,7 @@
   border-radius: var(--space-xs);
   border: none;
   background-color: #fafafa;
-  outline: none;
+  outline: solid 1px black;
 
   &[aria-invalid='true'] {
     outline: 1px solid #d32f2f;

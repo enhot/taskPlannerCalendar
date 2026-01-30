@@ -6,6 +6,15 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
+@use  'breakpoints';
+@use  'mixins';
+@use  'normalize';
+@use  'generate-figma';
+@use  'typography';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
 html {
   @include mat.theme((
     color: (
@@ -33,10 +42,3 @@ body {
   // Reset the user agent margin.
   margin: 0;
 }
-@use  'breakpoints';
-@use  'mixins';
-@use  'normalize';
-@use  'generate-figma';
-@use  'typography';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
