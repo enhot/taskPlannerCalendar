@@ -1,4 +1,4 @@
-    <div mat-dialog-content class="mat-content">
+    <div mat-dialog-content class="mat-content" appDropzone (fileDropped)="getFile($event)">
 
     <p class="icon"><mat-icon>cloud_upload</mat-icon></p>
     <p class="leading"><i18n-text label="pages.modal.leading"></i18n-text></p>
