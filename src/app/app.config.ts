@@ -13,7 +13,6 @@ import { firebaseConfig } from './shared/enviroment/enviroments';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import {  provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { CommonEffects } from './shared/store/common/common-effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
@@ -27,9 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     provideStore(),
-    provideEffects(
-      [CommonEffects]
-    ),
+    provideEffects(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
 
 ]
