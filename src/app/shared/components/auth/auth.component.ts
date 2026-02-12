@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { AppI18nTextComponent } from '../app-i18n-text/app-i18n-text.component';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { InputComponent } from '../input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
@@ -11,17 +10,18 @@ import { ModalComponent } from '../modal/modal.component';
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [AppI18nTextComponent,InputComponent,ReactiveFormsModule,ButtonComponent,MatButtonModule],
+  imports: [InputComponent,ReactiveFormsModule,ButtonComponent,MatButtonModule],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent implements OnInit{
+  @Output()   public statusChange = new EventEmitter<boolean>();
+
+  public isLoginMode:boolean = false
+
   private authService = inject(AuthService);
   readonly dialog = inject(MatDialog);
-
-  public isLoginMode: boolean = false;
-
 
   public authForm: FormGroup = new FormGroup({
       userEmail: new FormControl('',[Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
@@ -53,6 +53,12 @@ if (form.valid) {
      enterAnimationDuration,
       exitAnimationDuration,
     });
+  }
+
+  protected toggleStatus():void{
+    this.isLoginMode = !this.isLoginMode
+
+    this.statusChange.emit(this.isLoginMode)
   }
 
   

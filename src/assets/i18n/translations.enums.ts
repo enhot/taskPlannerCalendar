@@ -1,3 +1,7 @@
+export enum Elanguage {
+	EN = 'en',
+	UA = 'ua',
+}
 
 export type TLabels = 
 | never

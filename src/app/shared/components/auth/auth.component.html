@@ -1,5 +1,5 @@
 <div class="auth">
-  <div class="auth__nav">
+ <!-- <div class="auth__nav">
     <button type="button" class="auth__back-btn">
       <img
         class="auth__back-icon"
@@ -8,17 +8,8 @@
       />
     </button>
   </div>
-
+-->
   <div class="auth__content">
-    <div class="auth__title">
-      <h1>
-        <i18n-text [label]='isLoginMode ? "pages.log-in-out.auth.title" : "pages.log-in-out.registretion.title"'></i18n-text>
-      </h1>
-      <span class="auth__subtitle">
-        <i18n-text [label]='isLoginMode ? "pages.log-in-out.auth.subtitle" : "pages.log-in-out.registretion.subtitle"'></i18n-text>
-      </span>
-    </div>
-
     <form
       class="auth__form"
       [formGroup]="authForm"
@@ -55,7 +46,7 @@
 
     <div class="auth__btn-block">
       <app-button class="auth__submit" type="submit" [disabled]="authForm.invalid" variant="common" [label]="!isLoginMode ? 'pages.log-in-out.registretion.submit' : 'pages.log-in-out.auth.submit'"></app-button>
-      <app-button class="change-loginMode" (click)="isLoginMode = !isLoginMode" type="button"  variant="link" [label]="!isLoginMode ? 'pages.common.to-auth' : 'pages.common.to-log-in'"></app-button>
+      <app-button class="change-loginMode" (click)="toggleStatus()" type="button"  variant="link" [label]="!isLoginMode ? 'pages.common.to-auth' : 'pages.common.to-log-in'"></app-button>
     </div>
     </form>
   </div>

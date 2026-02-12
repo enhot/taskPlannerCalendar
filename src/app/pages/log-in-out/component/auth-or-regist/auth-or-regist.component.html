@@ -1,0 +1,12 @@
+   <div class="container">
+   <div class="auth__title">
+      <h1>
+        <i18n-text [label]='isLoginMode ? "pages.log-in-out.auth.title" : "pages.log-in-out.registretion.title"'></i18n-text>
+      </h1>
+      <span class="auth__subtitle">
+        <i18n-text [label]='isLoginMode ? "pages.log-in-out.auth.subtitle" : "pages.log-in-out.registretion.subtitle"'></i18n-text>
+      </span>
+    </div>
+    <app-auth (statusChange)="statusChange($event)"></app-auth>
+   </div>
+
