@@ -6,7 +6,12 @@
       "sign-in":"Войти",
       "to-log-in": "К регестрации",
       "to-auth":"К авторизации",
-      "add-photo": "Добавить своё фото"
+      "add-photo": "Добавить своё фото",
+      "placeholder-email":"Введите адрес электронной почты",
+      "placeholder-name":"ФИО",
+      "placeholder-password":"Пароль"
+
+
     },
     "log-in-out": {
       "registretion": {

@@ -6,7 +6,12 @@
             "sign-in":"Sign-in",
             "to-log-in": "To sign-in",
             "to-auth":"To log in",
-            "add-photo": "Add your photo"
+            "add-photo": "Add your photo",
+            "placeholder-email":"Enter your email address",
+            "placeholder-name":"Full name",
+            "placeholder-password":"Password"
+
+
         },
         "log-in-out":{
             "registretion":{

@@ -9,7 +9,7 @@
     #inputEl
     [id]="id()"
     [type]="type()"
-    [placeholder]="placeholder()"
+    [placeholder]="placeholder() | translate"
     [disabled]="disabled()"
     (input)="onInput($event)"
     (blur)="onTouched()"

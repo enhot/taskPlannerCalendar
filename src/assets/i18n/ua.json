@@ -6,7 +6,11 @@
       "sign-in":"Вхід",
       "to-log-in": "До реєстарації",
       "to-auth":"До входу",
-      "add-photo": "Додати своє фото"
+      "add-photo": "Додати своє фото",
+      "placeholder-email":"Введіть адресу електронної пошти",
+      "placeholder-name":"ФІО",
+      "placeholder-password":"Пароль"
+
     },
     "log-in-out": {
       "registretion": {

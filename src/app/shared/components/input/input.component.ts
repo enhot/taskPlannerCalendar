@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, Injector, input
 import { NG_VALUE_ACCESSOR, FormsModule, NgControl } from '@angular/forms';
 import { AppI18nTextComponent } from '../app-i18n-text/app-i18n-text.component';
 import { TLabels } from '../../../../assets/i18n/translations.enums';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 interface ControlValueAccessor {
@@ -14,7 +15,8 @@ interface ControlValueAccessor {
 
 @Component({
   selector: 'app-input',
-  imports: [CommonModule,FormsModule, AppI18nTextComponent],
+  standalone:true,
+  imports: [CommonModule,FormsModule, AppI18nTextComponent,TranslateModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,7 +30,7 @@ export class InputComponent implements ControlValueAccessor, OnInit{
   public id = input<string>('app-input'); 
   public label = input.required<TLabels>();
   public type = input<string>('text');
-  public placeholder = input<string>('');
+  public placeholder = input<TLabels | string>('');
   public value = signal<string>('');
   public disabled = signal<boolean>(false);
   //public control = input.required<FormControl>();
