@@ -1,9 +1,11 @@
 export enum Elanguage {
 	EN = 'en',
 	UA = 'ua',
+	RU = 'ru'
 }
 
 export type TLabels = 
+| Elanguage
 | never
 | 'pages.common.email'
 | 'pages.common.password'
