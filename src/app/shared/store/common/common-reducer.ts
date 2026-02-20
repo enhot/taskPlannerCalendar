@@ -7,6 +7,7 @@ const commonFeatureKey = 'commonFeature';
 const initialState: ICommonState = {
 	initialized: false,
 	language: null,
+    changeLanguage:false
 };
 
 const commonReducer = createReducer(
@@ -17,7 +18,8 @@ const commonReducer = createReducer(
     })),
     on(CommonAction.changeLanguage, (state, {lang})=> ({
         ...state,
-        language : lang
+        language : lang,
+        changeLanguage:true
     }))
 
 )

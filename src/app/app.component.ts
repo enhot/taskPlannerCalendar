@@ -16,7 +16,7 @@ export class AppComponent {
   public store = inject(Store);
   constructor(){
     this.store.dispatch(CommonAction.appStart.requested());
-    this.store.dispatch(CommonAction.changeLanguage({lang:Elanguage.RU}))
+    this.store.dispatch(CommonAction.changeLanguage({lang:Elanguage.UA}))
 
   }
 }
