@@ -6,6 +6,10 @@ import { AuthService } from '../../services/auth.service';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { Store } from '@ngrx/store';
+import { AuthAction } from '../../store/auth/common/auth-actions';
+import { UserInfo } from '@angular/fire/auth';
+import { IUserLogin, IUserRegistr } from '../../interfaces/IUsersApi';
 
 @Component({
   selector: 'app-auth',
@@ -16,34 +20,42 @@ import { ModalComponent } from '../modal/modal.component';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent implements OnInit{
-  @Output()   public statusChange = new EventEmitter<boolean>();
+  @Output() public statusChange = new EventEmitter<boolean>();
 
+  public store = inject(Store)
   public isLoginMode:boolean = false
 
   private authService = inject(AuthService);
   readonly dialog = inject(MatDialog);
 
   public authForm: FormGroup = new FormGroup({
-      userEmail: new FormControl('',[Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
-      userName: new FormControl('',[Validators.required, Validators.minLength(3)]),
-      userPassword: new FormControl('',[Validators.required,Validators.minLength(4)]),
+      email: new FormControl('',[Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
+      name:  new FormControl('',[Validators.required, Validators.minLength(3)]),
+      password: new FormControl('',[Validators.required,Validators.minLength(4)]),
+
 
   });
 
-  public ngOnInit(): void {
+  public ngOnInit() {
 
   }
 
   public authBtn(form:FormGroup){
-    console.log('sdas')
-if (form.valid) {
-    this.authService.signUp(form.value).subscribe({
+if (form.valid && this.isLoginMode) {
+  this.store.dispatch(AuthAction.logIn.requested({usersInfo: form.value as IUserLogin}));
+  console.log('Данные из формы:', form.getRawValue());
+  }else{
+       this.authService.signUp(form.value as IUserRegistr).subscribe({
       next: () => {
         console.log('Пользователь успешно создан в Auth и Firestore!');
       },
       error: (err) => console.error('Ошибка регистрации:', err)
     });
   }
+  }
+
+  public logIn(form:FormGroup){
+    console.log("log in")
   }
 
     openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
@@ -58,7 +70,13 @@ if (form.valid) {
   protected toggleStatus():void{
     this.isLoginMode = !this.isLoginMode
 
-    this.statusChange.emit(this.isLoginMode)
+    this.statusChange.emit(this.isLoginMode);
+const nameControl = this.authForm.get('name');
+    if (this.isLoginMode) {
+    nameControl?.disable(); 
+  } else {
+    nameControl?.enable(); 
+  }
   }
 
   

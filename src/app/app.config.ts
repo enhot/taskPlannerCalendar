@@ -17,6 +17,8 @@ import { CommonEffects } from './shared/store/common/common-effects';
 import { commonFeature } from './shared/store/common/common-reducer';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Elanguage } from '../assets/i18n/translations.enums';
+import { AuthEffects } from './shared/store/auth/common/auth-effects';
+import { authFeature } from './shared/store/auth/common/auth-reducer';
 
 export const appConfig: ApplicationConfig = {
 
@@ -31,8 +33,10 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideState(commonFeature),
+    provideState(authFeature),
 		provideEffects(
 			CommonEffects,
+      AuthEffects
 		),
     provideTranslateService({
       defaultLanguage:Elanguage.EN,

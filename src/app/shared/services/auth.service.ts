@@ -22,8 +22,8 @@ export class AuthService {
       userInfo.email,
       userInfo.password,
     ).then((userCredential) => {
-      const uid = userCredential.user.uid;
 
+      const uid = userCredential.user.uid;
       const userDocRef = doc(this.fireStore, `usersInfo/${uid}`);
 
       const profileData = {

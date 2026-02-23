@@ -18,15 +18,15 @@
       <app-input
         type="text"
         label="pages.common.email"
-        formControlName="userEmail"
+        formControlName="email"
         placeholder="pages.common.placeholder-email"
       ></app-input>
 
-      @if (!isLoginMode) {
+      @if (!isLoginMode && authForm.contains('name')) {
             <app-input
         type="text"
         label="pages.log-in-out.registretion.name"
-        formControlName="userName"
+        formControlName="name"
         placeholder="pages.common.placeholder-name"
       ></app-input>
       }
@@ -34,7 +34,7 @@
       <app-input
         type="text"
         label="pages.common.password"
-        formControlName="userPassword"
+        formControlName="password"
         placeholder="pages.common.placeholder-password"
       ></app-input>
 
