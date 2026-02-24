@@ -35,7 +35,7 @@ const authReducer = createReducer(
 		on(AuthAction.signUp.error, (state) => ({
 		...state,
 		isAuth:false,
-		error:'Login error'
+		error:'SignUp error'
 	}))
 
 )

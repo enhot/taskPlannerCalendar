@@ -39,8 +39,7 @@ export const appConfig: ApplicationConfig = {
       AuthEffects
 		),
     provideTranslateService({
-      defaultLanguage:Elanguage.EN,
-      useDefaultLang: true,
+      fallbackLang:Elanguage.EN,
       loader: provideTranslateHttpLoader({
         prefix: './assets/i18n/',
         suffix: '.json'

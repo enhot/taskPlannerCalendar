@@ -1,14 +1,16 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output } from '@angular/core';
 import { InputComponent } from '../input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
-import { AuthService } from '../../services/auth.service';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { Store } from '@ngrx/store';
-import { AuthAction } from '../../store/auth/common/auth-actions';
+import { AuthFacadeService } from './auth.facade/auth-facade.service';
 import { IUserLogin, IUserRegistr } from '../../interfaces/IUsersApi';
+import { Actions, ofType } from '@ngrx/effects';
+import { AuthAction } from '../../store/auth/common/auth-actions';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 
 @Component({
   selector: 'app-auth',
@@ -18,38 +20,38 @@ import { IUserLogin, IUserRegistr } from '../../interfaces/IUsersApi';
   styleUrl: './auth.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class AuthComponent implements OnInit{
+export class AuthComponent  {
   @Output() public statusChange = new EventEmitter<boolean>();
 
-  public store = inject(Store)
-  public isLoginMode:boolean = false
+  public isLoginMode:boolean = false;
+  public userIsAuth: boolean = false;
 
-  private authService = inject(AuthService);
   readonly dialog = inject(MatDialog);
 
   public authForm: FormGroup = new FormGroup({
       email: new FormControl('',[Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
       name:  new FormControl('',[Validators.required, Validators.minLength(3)]),
-      password: new FormControl('',[Validators.required,Validators.minLength(4)]),
-
-
+      password: new FormControl('',[Validators.required,Validators.minLength(6)]),
   });
 
-  public ngOnInit() {
-
-  }
+constructor(private actions$: Actions,  private authFacade :AuthFacadeService) {
+  this.actions$.pipe(
+    ofType(AuthAction.logIn.succeeded, AuthAction.signUp.succeeded),
+    takeUntilDestroyed()
+  ).subscribe(() => {
+    this.authForm.reset();
+  });
+}
 
   public authBtn(form:FormGroup){
-if (form.valid && this.isLoginMode) {
-  this.store.dispatch(AuthAction.logIn.requested({usersInfo: form.value as IUserLogin}));
-  console.log('Данные из формы:', form.getRawValue());
-  }else{
-      this.store.dispatch(AuthAction.signUp.requested({usersInfo: form.value as IUserRegistr}))
-  }
-  }
+    if (form.valid && this.isLoginMode) {
+      this.authFacade.logIn(form.value  as IUserLogin);
+    }else{
+      this.authFacade.signUp(form.value as IUserRegistr);
+    }
+      console.log(this.userIsAuth,'ss')
 
-  public logIn(form:FormGroup){
-    console.log("log in")
+    
   }
 
     openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
@@ -62,10 +64,11 @@ if (form.valid && this.isLoginMode) {
   }
 
   protected toggleStatus():void{
-    this.isLoginMode = !this.isLoginMode
+    const nameControl = this.authForm.get('name');
 
+    this.isLoginMode = !this.isLoginMode
     this.statusChange.emit(this.isLoginMode);
-const nameControl = this.authForm.get('name');
+
     if (this.isLoginMode) {
     nameControl?.disable(); 
   } else {
