@@ -1,7 +1,8 @@
 import { IUserLogin, IUserRegistr } from "../../../interfaces/IUsersApi";
 
 export interface IAuthState {
-	sighnUp:IUserRegistr | null;
+	signUp:IUserRegistr | null;
 	logIn:IUserLogin | null;
 	isAuth:boolean;
+	error:string
 }

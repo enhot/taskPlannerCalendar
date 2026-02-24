@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { Store } from '@ngrx/store';
 import { AuthAction } from '../../store/auth/common/auth-actions';
-import { UserInfo } from '@angular/fire/auth';
 import { IUserLogin, IUserRegistr } from '../../interfaces/IUsersApi';
 
 @Component({
@@ -45,12 +44,7 @@ if (form.valid && this.isLoginMode) {
   this.store.dispatch(AuthAction.logIn.requested({usersInfo: form.value as IUserLogin}));
   console.log('Данные из формы:', form.getRawValue());
   }else{
-       this.authService.signUp(form.value as IUserRegistr).subscribe({
-      next: () => {
-        console.log('Пользователь успешно создан в Auth и Firestore!');
-      },
-      error: (err) => console.error('Ошибка регистрации:', err)
-    });
+      this.store.dispatch(AuthAction.signUp.requested({usersInfo: form.value as IUserRegistr}))
   }
   }
 

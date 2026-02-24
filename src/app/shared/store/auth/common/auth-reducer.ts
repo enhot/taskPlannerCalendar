@@ -7,8 +7,9 @@ const authFeatureKey = 'authFeature';
 
 const initialState:IAuthState  = {
 	logIn:null,
-	sighnUp:null,
-	isAuth:false
+	signUp:null,
+	isAuth:false,
+	error:''
 };
 
 const authReducer = createReducer(
@@ -20,6 +21,21 @@ const authReducer = createReducer(
 		on(AuthAction.logIn.succeeded, (state) => ({
 		...state,
 		isAuth:true
+	})),
+		on(AuthAction.logIn.error, (state) => ({
+		...state,
+		isAuth:false,
+		error:'Login error'
+	})),
+		on(AuthAction.signUp.requested, (state,{usersInfo}) => ({
+		...state,
+		signUp: usersInfo,
+		isAuth:true
+	})),
+		on(AuthAction.signUp.error, (state) => ({
+		...state,
+		isAuth:false,
+		error:'Login error'
 	}))
 
 )
