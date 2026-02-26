@@ -34,13 +34,10 @@ export class AuthComponent  {
       password: new FormControl('',[Validators.required,Validators.minLength(6)]),
   });
 
-constructor(private actions$: Actions,  private authFacade :AuthFacadeService) {
-  this.actions$.pipe(
-    ofType(AuthAction.logIn.succeeded, AuthAction.signUp.succeeded),
+constructor(private authFacade :AuthFacadeService) {
+  authFacade.authSuccess$.pipe(
     takeUntilDestroyed()
-  ).subscribe(() => {
-    this.authForm.reset();
-  });
+  ).subscribe(() => this.authForm.reset())
 }
 
   public authBtn(form:FormGroup){
